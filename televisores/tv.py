@@ -20,7 +20,7 @@ class TV:
 
 #Getter and Setter de Canal
     def getCanal(self):
-        return self.canal
+        return self._canal
     def setCanal(self, i):
         if (self._estado == True) and (i <=120 ) and ( i>=1 ):
             self._canal = i
@@ -48,10 +48,10 @@ class TV:
 
 #Getter and Setter de numTv
     @classmethod
-    def getNumTV(self):
+    def getNumTV():
         return TV._numTv
     @classmethod
-    def setNumTV(self, num):
+    def setNumTV( num):
         TV._numTv = num
 
 

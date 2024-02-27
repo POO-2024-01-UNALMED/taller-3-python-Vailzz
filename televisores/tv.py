@@ -1,66 +1,53 @@
-class TV:
+class TV: 
+    _numTV=0
 
-    _numTv = 0
-
-    def __init__(self, marca, estado):
+    def __init__(self,marca,estado):
         self._marca = marca
+        self._estado = estado
+        TV._numTV+=1
         self._canal = 1
         self._precio = 500
-        self._estado = estado
         self._volumen = 1
         self._control = None
 
-        TV._tv+=1
-        
-    #Getter and Setter de Marca
+    def setMarca(self,marca):
+        self._marca = marca
     def getMarca(self):
         return self._marca
-    def setMarca(self, marca):
-        self._marca = marca
+    
+    def setCanal(self,num):
+        if (self._estado == True) and (num <=120 ) and ( num>=1 ):
+            self._canal = num
 
-#Getter and Setter de Canal
     def getCanal(self):
         return self._canal
-    def setCanal(self, i):
-        if (self._estado == True) and (i <=120 ) and ( i>=1 ):
-            self._canal = i
-
-#Getter and Setter de Precio
+    
+    def setPrecio(self,precio):
+        self._precio = precio
     def getPrecio(self):
         return self._precio
-    def setPrecio(self, precio):
-        self._precio = precio
-
-#Getter and Setter de Volumen
-
-    def getVolume(self):
-        return self._volumen
-    def setVolume(self, volumen):
+    
+    def setVolumen(self,volumen):
         if self._estado == True and volumen>=0 and volumen <= 7:
             self._volumen = volumen
-
-
-#Getter and Setter de Control
+    def getVolumen(self):
+        return self._volumen
+    
+    def setControl(self,control):
+        self._control = control
     def getControl(self):
         return self._control
-    def setControl(self, control):
-        self._control = control
-
-#Getter and Setter de numTv
-    @classmethod
+    
+    def setNumTV(num):
+        TV._numTV = num
     def getNumTV():
-        return TV._numTv
-    @classmethod
-    def setNumTV( num):
-        TV._numTv = num
-
-
-
+        return TV._numTV
+    
     def turnOn(self):
         self._estado = True
     def turnOff(self):
         self._estado = False
-
+    
     def getEstado(self):
         return self._estado
     
@@ -76,4 +63,3 @@ class TV:
     def volumenDown(self):
         if (self._estado == True)and(self._volumen>0):
             self._volumen -=1
-    
